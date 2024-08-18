@@ -57,7 +57,9 @@ $route['agent'] = 'agent/home';
 $route['agent/signup'] = 'agent/home/signup';
 $route['agent/login'] = 'agent/home/login';
 $route['agent/auth_signup'] = 'agent/home/auth_signup';
-$route['agent/auth_login'] = 'agent/home/auth_login';
+$route['agent/auth_signin'] = 'agent/home/auth_signin';
+$route['agent/dashboard'] = 'agent/home/dashboard';
+$route['agent/add_new_car'] = 'agent/home/add_new_car';
 
 //Customer
 
