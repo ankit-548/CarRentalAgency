@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">
     <div>
-        <?php if($this->session->flashdata('msg')) echo $this->session->flashdata('msg');?>
+        <?php if($this->session->flashdata('msg')) { echo $this->session->flashdata('msg'); $this->session->unset_userdata('msg');}?>
     </div>
     <div class="position-absolute top-50 start-50 translate-middle border bg-dark text-light rounded p-5"></divclass>
         <form action="<?php echo base_url('agent/auth_signup')?>" method="post" class="row g-3">

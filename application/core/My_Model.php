@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class MY_Model extends CI_Model
 {
+    public $_primary_key = 'id';
     public function __construct()
     {
         parent::__construct();
@@ -42,8 +43,18 @@ class MY_Model extends CI_Model
         }
     }
 
+    //This function will remove all keys which do not belong to any column
+    public function validate_save_data($data, $table_name) {
+        $db_row = array();
+        $fields = $this->db->list_fields($table_name);
+        foreach ($fields as $field) {
+            if (array_key_exists($field, $data) ){$db_row[$field] = $data[$field];}//process only provided values
+        }
+        return $db_row;
+    }
+
     //This function will return filtered rows in the table
-    public function get_rows($filter = array(), $params=array() ,$num_rows=false,$join=array(),$table_name_to_fetch) {
+    public function get_rows($filter = array(), $params=array() ,$num_rows=false,$join=array(),$table_name_to_fetch, $need_id=false) {
         if(is_array($join) && count($join)>0){            
             $_PK="tbl.".$this->_primary_key;
             $this->db->from($table_name_to_fetch); //default table alias
@@ -71,7 +82,7 @@ class MY_Model extends CI_Model
                 if(empty($params['select'])){
                     if(!$distinct){$this->db->select($_PK);}
                 }else{                    
-                    if(!$distinct && $need_mid){$this->db->select($_PK);}//necessary fields if not distinct value
+                    if(!$distinct && $need_id){$this->db->select($_PK);}//necessary fields if not distinct value
                     $this->db->select($params['select']);
                 }
             }else{

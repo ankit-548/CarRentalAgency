@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Site/login';
+$route['logout'] = 'Site/logout';
 
 // Agent
 
@@ -59,11 +60,15 @@ $route['agent/login'] = 'agent/home/login';
 $route['agent/auth_signup'] = 'agent/home/auth_signup';
 $route['agent/auth_signin'] = 'agent/home/auth_signin';
 $route['agent/dashboard'] = 'agent/home/dashboard';
-$route['agent/add_new_car'] = 'agent/home/add_new_car';
+$route['agent/add_car'] = 'agent/home/add_car';
 
 //Customer
 
 $route['customer'] = 'Customer/home';
 $route['Customer/signup'] = 'Customer/home/signup';
 $route['Customer/login'] = 'Customer/home/login';
+$route['customer/auth_signup'] = 'customer/home/auth_signup';
+$route['customer/auth_signin'] = 'customer/home/auth_signin';
+$route['customer/rent_car'] = 'customer/home/rent_car';
+$route['customer/auth_signout'] = 'customer/home/auth_signout';
 

@@ -10,12 +10,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
     <header>
-        <nav class="navbar bg-primary" data-bs-theme="dark">
+        <nav class="navbar bg-dark" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">CarRentals</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="<?php echo base_url();?>">CarRentals</a>
+                <div>
+                    <?php if(isset(session_get('user')['name'])) { ?>
+                        <span style="color: white;"><?php echo 'Welcome '.session_get('user')['name'];?></span>
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="" onclick="location.href='<?php echo base_url('logout') ;?>'" data-bs-whatever="@mdo">SignOut</button>                        
+                    <?php } else { ?>
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#signUpModal" data-bs-whatever="@mdo">SignUp</button>
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#signInModal" data-bs-whatever="@mdo">SignIn</button>
+                    <?php } ?>                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-                </button>
+                    </button>
+                </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">

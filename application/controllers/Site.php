@@ -10,4 +10,9 @@ class Site extends CI_Controller {
 	{
 		$this->load->view('login');
 	}
+	public function logout() 
+	{
+		$this->session->sess_destroy();
+		redirect();
+	}
 }

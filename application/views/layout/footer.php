@@ -1,9 +1,9 @@
     </main>
     <footer class="bg-body-tertiary text-center text-lg-start">
     <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: #0d6efd;">
+        <div class="text-center p-3" style="background-color: black; color: white">
             © 2020 Copyright:
-            <a class="text-body" href="">CarRentals</a>
+            <span style="color: white">CarRentals</span>
         </div>
     <!-- Copyright -->
     </footer>
