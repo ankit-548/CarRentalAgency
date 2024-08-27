@@ -64,9 +64,9 @@ $route['agent/add_car'] = 'agent/home/add_car';
 
 //Customer
 
-$route['customer'] = 'Customer/home';
-$route['Customer/signup'] = 'Customer/home/signup';
-$route['Customer/login'] = 'Customer/home/login';
+$route['customer'] = 'customer/home';
+$route['Customer/signup'] = 'customer/home/signup';
+$route['Customer/login'] = 'customer/home/login';
 $route['customer/auth_signup'] = 'customer/home/auth_signup';
 $route['customer/auth_signin'] = 'customer/home/auth_signin';
 $route['customer/rent_car'] = 'customer/home/rent_car';
